@@ -183,7 +183,9 @@ namespace CsvHelper.Excel
             if (disposed) return;
             if (disposing)
             {
+#if !NET40
                 if (disposeWorksheet) range.Worksheet.Dispose();
+#endif
                 if (disposeWorkbook)
                 {
                     Workbook.SaveAs(path);
